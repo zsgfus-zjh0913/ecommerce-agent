@@ -1,0 +1,168 @@
+[
+  {
+    "order_id": "ORD-2024001",
+    "customer_name": "张伟",
+    "phone": "138****6789",
+    "status": "已签收",
+    "items": [
+      {"name": "夏季轻薄防晒衣 白色 L", "price": 129, "quantity": 1}
+    ],
+    "total": 129,
+    "order_time": "2024-01-05 14:30:00",
+    "ship_time": "2024-01-06 09:00:00",
+    "deliver_time": "2024-01-08 16:20:00",
+    "logistics": {"company": "中通快递", "tracking_no": "ZT202401050001", "status": "已签收"},
+    "can_return": false,
+    "return_deadline": "2024-01-15"
+  },
+  {
+    "order_id": "ORD-2024002",
+    "customer_name": "张伟",
+    "phone": "138****6789",
+    "status": "已发货",
+    "items": [
+      {"name": "纯棉T恤 黑色 XL", "price": 79, "quantity": 2},
+      {"name": "休闲短裤 卡其色 XL", "price": 99, "quantity": 1}
+    ],
+    "total": 257,
+    "order_time": "2024-01-10 20:15:00",
+    "ship_time": "2024-01-11 11:00:00",
+    "deliver_time": null,
+    "logistics": {"company": "韵达快递", "tracking_no": "YD202401100001", "status": "运输中，预计1月13日送达"},
+    "can_return": true,
+    "return_deadline": "2024-01-20"
+  },
+  {
+    "order_id": "ORD-2024003",
+    "customer_name": "李娜",
+    "phone": "139****1234",
+    "status": "已签收",
+    "items": [
+      {"name": "复古连衣裙 S", "price": 259, "quantity": 1}
+    ],
+    "total": 259,
+    "order_time": "2024-01-08 10:00:00",
+    "ship_time": "2024-01-08 16:00:00",
+    "deliver_time": "2024-01-10 14:00:00",
+    "logistics": {"company": "圆通速递", "tracking_no": "YT202401080001", "status": "已签收"},
+    "can_return": true,
+    "return_deadline": "2024-01-17"
+  },
+  {
+    "order_id": "ORD-2024004",
+    "customer_name": "王芳",
+    "phone": "136****4567",
+    "status": "待付款",
+    "items": [
+      {"name": "真丝围巾 酒红色", "price": 189, "quantity": 1}
+    ],
+    "total": 189,
+    "order_time": "2024-01-12 09:45:00",
+    "ship_time": null,
+    "deliver_time": null,
+    "logistics": null,
+    "can_return": false,
+    "return_deadline": null
+  },
+  {
+    "order_id": "ORD-2024005",
+    "customer_name": "王芳",
+    "phone": "136****4567",
+    "status": "退货中",
+    "items": [
+      {"name": "高腰阔腿裤 黑色 M", "price": 159, "quantity": 1}
+    ],
+    "total": 159,
+    "order_time": "2024-01-03 12:00:00",
+    "ship_time": "2024-01-04 08:00:00",
+    "deliver_time": "2024-01-06 10:00:00",
+    "logistics": {"company": "中通快递", "tracking_no": "ZT202401050002", "status": "退货运输中"},
+    "can_return": false,
+    "return_deadline": "2024-01-13",
+    "return_info": {"return_id": "RTN-2024001", "reason": "尺码偏大", "status": "已寄回，等待仓库验收", "refund_amount": 159}
+  },
+  {
+    "order_id": "ORD-2024006",
+    "customer_name": "赵强",
+    "phone": "137****8901",
+    "status": "已签收",
+    "items": [
+      {"name": "男士商务衬衫 蓝色 L", "price": 199, "quantity": 2},
+      {"name": "男士商务衬衫 白色 L", "price": 199, "quantity": 1}
+    ],
+    "total": 597,
+    "order_time": "2024-01-01 08:30:00",
+    "ship_time": "2024-01-01 15:00:00",
+    "deliver_time": "2024-01-03 11:00:00",
+    "logistics": {"company": "顺丰速运", "tracking_no": "SF202401010001", "status": "已签收"},
+    "can_return": true,
+    "return_deadline": "2024-01-10"
+  },
+  {
+    "order_id": "ORD-2024007",
+    "customer_name": "赵强",
+    "phone": "137****8901",
+    "status": "已退款",
+    "items": [
+      {"name": "运动跑鞋 黑色 42码", "price": 399, "quantity": 1}
+    ],
+    "total": 399,
+    "order_time": "2023-12-28 16:00:00",
+    "ship_time": "2023-12-29 10:00:00",
+    "deliver_time": "2023-12-31 09:00:00",
+    "logistics": {"company": "中通快递", "tracking_no": "ZT202312280001", "status": "已退回"},
+    "can_return": false,
+    "return_deadline": "2024-01-07",
+    "return_info": {"return_id": "RTN-2024002", "reason": "鞋子偏小", "status": "已退款", "refund_amount": 399, "refund_time": "2024-01-05"}
+  },
+  {
+    "order_id": "ORD-2024008",
+    "customer_name": "孙丽丽",
+    "phone": "135****2345",
+    "status": "已发货",
+    "items": [
+      {"name": "碎花雪纺衫 S", "price": 149, "quantity": 1},
+      {"name": "牛仔短裙 深蓝 S", "price": 179, "quantity": 1}
+    ],
+    "total": 328,
+    "order_time": "2024-01-11 22:00:00",
+    "ship_time": "2024-01-12 14:00:00",
+    "deliver_time": null,
+    "logistics": {"company": "申通快递", "tracking_no": "ST202401110001", "status": "已揽件"},
+    "can_return": true,
+    "return_deadline": "2024-01-21"
+  },
+  {
+    "order_id": "ORD-2024009",
+    "customer_name": "陈明",
+    "phone": "133****7890",
+    "status": "待发货",
+    "items": [
+      {"name": "冬季加厚羽绒服 黑色 XXL", "price": 699, "quantity": 1}
+    ],
+    "total": 699,
+    "order_time": "2024-01-12 07:30:00",
+    "ship_time": null,
+    "deliver_time": null,
+    "logistics": null,
+    "can_return": true,
+    "return_deadline": null
+  },
+  {
+    "order_id": "ORD-2024010",
+    "customer_name": "陈明",
+    "phone": "133****7890",
+    "status": "已签收",
+    "items": [
+      {"name": "羊绒围巾 灰色", "price": 289, "quantity": 1},
+      {"name": "皮质手套 黑色", "price": 129, "quantity": 1}
+    ],
+    "total": 418,
+    "order_time": "2024-01-02 13:00:00",
+    "ship_time": "2024-01-03 09:00:00",
+    "deliver_time": "2024-01-05 15:00:00",
+    "logistics": {"company": "顺丰速运", "tracking_no": "SF202401020001", "status": "已签收"},
+    "can_return": true,
+    "return_deadline": "2024-01-12"
+  }
+]

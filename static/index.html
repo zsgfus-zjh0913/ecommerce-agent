@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>电商客服 — 小智</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
+            background: #f0f2f5;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .chat-container {
+            width: 100%;
+            max-width: 720px;
+            height: 100vh;
+            max-height: 800px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .chat-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            padding: 18px 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .chat-header .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+        .chat-header .info h3 { font-size: 16px; }
+        .chat-header .info span { font-size: 12px; opacity: 0.85; }
+        .chat-header .reset-btn {
+            margin-left: auto;
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+            transition: background .2s;
+        }
+        .chat-header .reset-btn:hover { background: rgba(255,255,255,0.35); }
+
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .message {
+            max-width: 85%;
+            padding: 12px 16px;
+            border-radius: 12px;
+            line-height: 1.6;
+            font-size: 14px;
+            word-break: break-word;
+            animation: fadeIn .3s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .message.user {
+            align-self: flex-end;
+            background: #667eea;
+            color: #fff;
+            border-bottom-right-radius: 4px;
+        }
+        .message.assistant {
+            align-self: flex-start;
+            background: #f1f3f5;
+            color: #333;
+            border-bottom-left-radius: 4px;
+            white-space: pre-wrap;
+        }
+
+        .message.assistant strong { color: #5b3cc4; }
+
+        .chat-input-area {
+            padding: 16px 24px;
+            border-top: 1px solid #e8e8e8;
+            display: flex;
+            gap: 10px;
+            align-items: flex-end;
+        }
+        .chat-input-area textarea {
+            flex: 1;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 12px 16px;
+            font-size: 14px;
+            font-family: inherit;
+            resize: none;
+            outline: none;
+            max-height: 100px;
+            transition: border-color .2s;
+        }
+        .chat-input-area textarea:focus { border-color: #667eea; }
+        .chat-input-area button {
+            background: #667eea;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            padding: 12px 22px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: background .2s;
+            white-space: nowrap;
+        }
+        .chat-input-area button:hover { background: #5a6fd6; }
+        .chat-input-area button:disabled { background: #ccc; cursor: not-allowed; }
+
+        .typing-indicator {
+            display: flex;
+            gap: 4px;
+            padding: 8px 0;
+            align-self: flex-start;
+        }
+        .typing-indicator span {
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            background: #ccc;
+            animation: bounce 1.4s infinite;
+        }
+        .typing-indicator span:nth-child(2) { animation-delay: .2s; }
+        .typing-indicator span:nth-child(3) { animation-delay: .4s; }
+        @keyframes bounce {
+            0%, 60%, 100% { transform: translateY(0); }
+            30% { transform: translateY(-6px); }
+        }
+
+        @media (max-width: 600px) {
+            .chat-container { max-height: 100vh; border-radius: 0; }
+            .message { max-width: 90%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <div class="avatar">🤖</div>
+            <div class="info">
+                <h3>小智 — 官方客服</h3>
+                <span>在线 · 随时为您服务</span>
+            </div>
+            <button class="reset-btn" onclick="resetChat()">🔄 新对话</button>
+        </div>
+
+        <div class="chat-messages" id="messages">
+            <div class="message assistant">
+                您好！我是您的专属客服助手 <strong>小智</strong> 👋<br><br>
+                我可以帮您：<br>
+                📦 <strong>查询订单</strong> — 告诉我订单号或手机号<br>
+                📋 <strong>解答常见问题</strong> — 退货、发货、尺码等<br>
+                🔄 <strong>处理退换货</strong> — 帮您创建退货申请<br>
+                🛍️ <strong>推荐商品</strong> — 告诉我您的需求<br><br>
+                请问有什么可以帮您的？
+            </div>
+        </div>
+
+        <div class="chat-input-area">
+            <textarea
+                id="userInput"
+                rows="1"
+                placeholder="输入您的问题..."
+                onkeydown="handleKeyDown(event)"
+            ></textarea>
+            <button id="sendBtn" onclick="sendMessage()">发送</button>
+        </div>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
